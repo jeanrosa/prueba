@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         //Creacioón de Categorias  
-        /*
+        
         DB::table('categories')->insert([
             'description' => 'general',
         ]);
@@ -39,42 +39,15 @@ class DatabaseSeeder extends Seeder
         DB::table('rols')->insert([
             'description' => 'suscriptor',
         ]);
-        */
+    
     
         //Creación de Usuario admin
         DB::table('users')->insert([
-            'name' => 'autor',
-            'email' => 'autor@autor.com',
+            'name' => 'admin',
+            'email' => 'admin@autor.com',
             'rol_id' => '2',
             'password' => Hash::make('123456'),
         ]);
 
-        DB::table('users')->insert([
-            'name' => 'suscriptor',
-            'email' => 'suscriptor@suscriptor.com',
-            'rol_id' => '3',
-            'password' => Hash::make('123456'),
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'autor2',
-            'email' => 'autor2@autor.com',
-            'rol_id' => '2',
-            'password' => Hash::make('123456'),
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'suscriptor2',
-            'email' => 'suscriptor2@suscriptor.com',
-            'rol_id' => '3',
-            'password' => Hash::make('123456'),
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'suscriptor3',
-            'email' => 'suscriptor3@suscriptor.com',
-            'rol_id' => '3',
-            'password' => Hash::make('123456'),
-        ]);
     }
 }
