@@ -8,7 +8,7 @@
             <div class="modal-body">
             
                 <!-- Formulario Registro -->
-                <form action="{{route('notice.create')}}" method="post">
+                <form action="{{route('notice.create')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Titulo</label>

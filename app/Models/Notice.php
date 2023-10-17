@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Notice extends Model
 {
     use HasFactory;
+    
+    public function categorias(){
+        return $this ->belongsTo(Categorie::class);
+    }
 }

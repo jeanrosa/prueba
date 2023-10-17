@@ -40,7 +40,7 @@
                         <td>{{$item->name}}</td>
                         <td>{{$item->email}}</td>
                         <td>
-                            <a class="btn btn-sm btn-warning" href="">ver</a>
+                            
                             <a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal1{{$item->id}}" href="#">editar</a>
                             <a class="btn btn-sm btn-danger" onclick="return res()" href="{{route("user.delete", $item->id)}}">borrar</a>
                         </td>

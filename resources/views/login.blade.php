@@ -4,7 +4,7 @@
         <p class="alert alert-danger mx-2 text-center">Credenciales incorrectas</p>
     @endif
     <div class="vh-100 align-items-center row d-flex justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-4 bg-light">
             <h1 class="text-center p-3">Login</h1>
             <form action="{{route('login')}}" method="POST">
                 @csrf

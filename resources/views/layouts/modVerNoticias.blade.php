@@ -9,16 +9,19 @@
             
                 <!--Card-->
                 <div class="card" >
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{{$notice->image}}" class="card-img-top" alt="Imagen Noticia">
                     <div class="card-body">
                         <h5 class="card-title">Autor: <strong>{{$notice->author}}</strong></h5>
+                        <h5> Contenido: </h5>
                         <p class="card-text">{{$notice->content}}</p>
+                        <p class="card-text"><strong>Categoría: </strong>{{$notice->description}}</p>
+                        <p class="card-text">{{$notice->created_at}}</p>
                     </div>
                 </div>
                 <!--Card-->                        
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <!--<button type="submit" class="btn btn-primary">Guardar</button>-->
                 </div>   
             </div>
         </div>

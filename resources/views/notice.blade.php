@@ -41,7 +41,9 @@
                     <tr>
                         <th scope="row">{{$notice->id}}</th>
                         <td>{{$notice->title}}</td>
-                        <td>{{$notice->image}}</td>
+                        <td>
+                            <img src="{{base64_decode($notice->image)}}" alt="Miniatura" width="50">    
+                        </td>
                         <td>{{$notice->created_at}}</td>
                         <td>
                             <a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal2{{$notice->id}}" href="#">ver</a>

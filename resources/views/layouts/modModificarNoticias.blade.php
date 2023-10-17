@@ -8,7 +8,7 @@
             <div class="modal-body">
             
                 <!-- Formulario Modificar -->
-                <form action="{{route('notice.update')}}" method="post">
+                <form action="{{route('notice.update')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="d-none">
                         <input name= "txtId" value="{{$notice->id}}" type="text" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -30,12 +30,12 @@
                         <input required name= "txtImage" value="{{$notice->image}}" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">User: <strong>{{Auth::user()->name}}</strong></label>
+                        <label for="exampleInputEmail1" class="form-label">User: <strong>{{$notice->name}}</strong></label>
                         <input required name= "txtUser" value="{{Auth::user()->id}}" type="text" class="form-control d-none" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Categoria</strong></label>
+                        <label for="exampleInputEmail1" class="form-label">Categoria: <strong>{{$notice->description}}</strong></label>
                         <select name="txtCategorie" class="form-control" id="">
                             @foreach ($categories as $categorie)
                                 <option name="txtCategorie" value="{{$categorie->id}}">{{$categorie->description}}</option>

@@ -22,10 +22,17 @@ class NoticeController extends Controller
         try {
             //$users = DB::select("select id, name, email from prueba.users");
             $categories = Categorie::all();
-            $notices = Notice::all();
+            //$notices = Notice::all();
+            $notices = DB::table('notices')
+            ->join('categories', 'categories.id', '=', 'notices.categorie_id')
+            ->join('users', 'users.id', '=', 'notices.user_id')
+            ->select('notices.*', 'categories.description', 'users.name')
+            ->get();
+            //$notices = Users::find()->categorias()->get();
+            //return $notices;
             return view('notice')->with('notices', $notices)->with('categories', $categories);
         } catch (\Throwable $th) {
-            //throw $th;
+            return $th;
         }
     }
 
@@ -38,12 +45,11 @@ class NoticeController extends Controller
     {
         try {
             $categories = Categorie::all();
-            //User
             $notices = new Notice;
             $notices->title = $request->txtTitle;
             $notices->author = $request->txtAuthor;
             $notices->content = $request->txtContent;
-            $notices->image = $request->txtImage;
+            $notices->image = base64_encode($request->file('txtImage'));
             $notices->user_id = $request->txtUser;
             $notices->categorie_id = $request->txtCategorie;
             $notices->save();
@@ -97,7 +103,7 @@ class NoticeController extends Controller
     public function update(Request $request)
     {
         $sql = DB::update('update notices set title = ?, author = ?, content = ?, image = ?, user_id = ?, categorie_id = ? where id = ? ', [
-            $request->txtTitle,$request->txtAuthor, $request->txtContent, $request->txtImage, $request->txtUser, $request->txtCategorie, $request->txtId
+            $request->txtTitle,$request->txtAuthor, $request->txtContent, base64_encode($request->file('txtImage')), $request->txtUser, $request->txtCategorie, $request->txtId
         ]);
 
         return redirect('/notices')->with('status', 'ok');
